@@ -1,6 +1,6 @@
 # arc-plugin-custom-domain
 
-Setup a custom domain without pain!
+This is a plugin for arc.codes to help setup a custom domain on CloudFront without pain!
 
 Features:
 
