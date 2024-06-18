@@ -14,6 +14,9 @@ export default function config ({aws, dns, cdn, http}, stage) {
   if (dns && cdn) 
     errors.push('only one of @dns or @cdn can be configured')
 
+  if (!dns && !cdn) 
+    errors.push('must have one of @dns or @cdn')
+
   // @dns requires domain and zone
   // @cdn requires domain and cert arn
   let domain = false

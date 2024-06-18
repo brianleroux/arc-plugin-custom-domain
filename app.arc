@@ -6,7 +6,7 @@ arc-plugin-cdn
   src /http
   method get
 
-@wss
+@ws
 connect
   src /ws/connect
 

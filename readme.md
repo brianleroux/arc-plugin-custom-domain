@@ -17,8 +17,11 @@ npm install arc-plugin-custom-domain
 - If you want to use Route53 then use `@dns`
 - If you want to manage your DNS elsewhere then use `@cdn`
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > To use this plugin your application must be deployed in `us-east-1`. This is a limitation of how CloudFront works with API Gateway and ACM Certificates.
+
+> [!WARNING]
+> This plugin will fail if used with an app that has never been deployed. You need to deploy the stack at least once before using this plugin. (API Gateway cannot create a domain mapping until it has been deployed at least once.)
 
 ## `@dns`
 
@@ -29,6 +32,9 @@ Example:
 ```
 @app
 myapp
+
+@aws
+region us-east-1
 
 @http
 
@@ -55,6 +61,9 @@ Example:
 ```
 @app
 myapp
+
+@aws
+region us-east-1
 
 @http
 

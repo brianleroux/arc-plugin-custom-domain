@@ -14,6 +14,7 @@ export let deploy = {
     let {domain, cert, zone, zoneDomain } = config(arc, stage)
 
     if (arc.dns) { 
+
       // create a cert
       cloudformation.Resources.Certificate = {
         Type: 'AWS::CertificateManager::Certificate',
@@ -27,6 +28,7 @@ export let deploy = {
           } ]
         }
       }
+
       // create A record
       cloudformation.Resources.Alias = {
         Type: 'AWS::Route53::RecordSetGroup',
@@ -240,7 +242,6 @@ export let deploy = {
         OriginRequestPolicyId: { Ref: 'WssOriginRequestPolicy' }, // 'b689b0a8-53d0-40ab-baf2-68738e2966ac',
         // https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html#managed-cache-policy-caching-disabled
         CachePolicyId: { Ref: 'CachePolicy' }, // '4135ea2d-6df8-44a3-9df3-4b5a84be39ad',
-
         FunctionAssociations: [ {
           EventType: 'viewer-request',
           FunctionARN: { 'Fn::GetAtt': [ 'RequestFunction', 'FunctionMetadata.FunctionARN' ] }
