@@ -20,6 +20,9 @@ npm install arc-plugin-custom-domain
 > [!IMPORTANT]
 > To use this plugin your application must be deployed in `us-east-1`. This is a limitation of how CloudFront works with API Gateway and ACM Certificates.
 
+> [!NOTE]
+> This plugin requires a URLs to exist *before* you use it. Make sure you've deployed at least once before using this plugin with `arc deploy` and `arc deploy --production` respectively.
+
 > [!WARNING]
 > This plugin will fail if used with an app that has never been deployed. You need to deploy the stack at least once before using this plugin. (API Gateway cannot create a domain mapping until it has been deployed at least once.)
 
